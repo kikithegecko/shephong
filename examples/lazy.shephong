@@ -1,0 +1,79 @@
+
+((($ _) ^) ^_ :)
+
+(((#7 #8 #9 ~) ^_) `)						{ result: 8 }
+((((#11 (#22 #33 #44 ~) #55 ~) ^_) ^_) `)	{ result: 33 }
+
+{ simple addition }
+((#1 #2 #+) `)								{ result: 3 }
+
+{ functional addition }
+((#2 #1 $) apply :)
+(($ #+) + :)
+((+ apply) `)								{ result: 3 }
+
+{ use parameters more than once }
+(($ $ #*) square :)
+(((#2 #3 #+) square) `)						{ result: 25 }
+
+{ head and tail example }
+((#7 #5 #3 #2 ~) primes :)
+((primes #^) `)								{ result: 2 }
+((primes #_) `)								{ result: (7 5 3 ~) }
+
+{ mapply }
+((square (#4 #3 #2 #1 ~)) `)				{ result: (16 9 4 1 ~) }
+
+{ our if, implemented with head and tail: }
+{ return 42 if less than 23 }
+(
+	($				{ else }
+	 #42			{ then }
+	 (#23 $ #<))	{ cond (true => head, false => tail) }
+ fortify :)
+{:}
+((#17 fortify) `)							{ result: 42 }
+((#27 fortify) `)							{ result: 27 }
+
+{ slightly complex example }
+(((((#1 $ #-) sum-of) $ #+) #0 (#1 $ #<)) sum-of :)
+((#10 sum-of) `)							{ result: 55 }
+
+{ factorial }
+(
+	(
+		(((#1 $ #-) fak) $ #*)
+		#1
+		(#1 $ #<)
+	)
+fak :)
+
+((#10 fak) `)								{ result: 3628800 }
+
+
+{ fibonacci }
+(
+	(
+		( ((#2 $ #-) fib)
+		  ((#1 $ #-) fib) #+)
+		$
+		(#2 $ #<)
+	)
+fib :)
+
+{((#21 fib) `)								{ result: 10946 } auskommentiert }
+
+{
+{ compose }
+(($2 $1) compose :)
+((fib square compose) sqfib :)
+
+((#10 sqfib) `)								{ result: 3025 }
+}
+
+($ print :)
+(("Hello, World!" print) `)					{ result: Hello, World! }
+
+{(($2 $1 #+) plus :)
+(((#1 #2 plus ~) (($ _) ($ ^))) `)}
+

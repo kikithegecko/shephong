@@ -1,0 +1,58 @@
+
+{ merge-lists: takes two sorted lists and merges them }
+
+
+(
+  (
+    (
+      ((
+        (($2 _) $1 merge-lists)
+        (($2 ^) ~)
+      @)
+      (
+        ($2 ($1 _) merge-lists)
+        (($1 ^) ~)
+      @)
+      (($2 ^) ($1 ^) <))
+    $1
+    ((~) $2 =))
+  $2
+  ((~) $1 =))
+merge-lists :)
+
+(((6 4 2 ~) (8 7 5 1 ~) merge-lists) `)
+
+
+{ split-lists: splits one list in two of almost equal size }
+{ the list is guaranteed to have at least 2 elements when called from merge-sort }
+
+((((($_) length) 1 +)
+  0
+  ((~) $ =))
+length :)
+
+((($3 $2 ~)
+  (($3 (($2 ^) ~) @) ($2 _) (1 $1 -) split-lists-rec)
+  (0 $1 >))
+split-lists-rec :)
+
+(((~) $ (2 ($ length) /) split-lists-rec)
+split-lists :)
+
+
+(("length of string" length) `)
+(((1 2 3 4 5 ~) split-lists) `)
+
+
+{ merge-sort: takes one list and sorts them }
+
+(
+  (
+  ((merge-sort ($ split-lists)) merge-lists)
+  $
+  (((~) ($ _) =) ((~) $ =) |))
+merge-sort :)
+
+(((431 60 260 756 794 803 553 429 119 921 ~) merge-sort) `)
+(("merge-sort" merge-sort) `)
+((("it's" "shephong!" "baby" ~) merge-sort) `)

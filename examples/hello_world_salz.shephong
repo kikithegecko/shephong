@@ -1,0 +1,22 @@
+{ nach Beispiel von kiki: }
+
+  {shephobfusacated}
+ (((($1 ~) (($ _) <-)
+ @)(~)((~) $ =))<- :)
+    ((" World" (((
+'H 'e 'l 'l 'o "Guys"
+    ~)_) <-) @) `)
+
+{ nicht obfuscated }
+(($ <-) reverse :)
+
+(
+	(
+	"Goodbye" 
+	(" World" (
+		('H 'e 'l 'l 'o "Shephong" _) reverse) 
+	@) 
+	^) 
+`)
+
+( ( #0 "exit" "java.lang.System" #\ ) `)

@@ -1,0 +1,7 @@
+(((($1 ~) (($ _) reverse)@)(~)((~) $ =))reverse :)
+
+{
+(((("world" ~)(('h 'e 'l 'l 'o "guys" ~)_) reverse) @) `)
+( ( #0 "exit" "java.lang.System" #\ ) `)
+}
+(("Goodbye" (" World" (('H 'e 'l 'l 'o "Shephong" _) reverse) @) ^) `)

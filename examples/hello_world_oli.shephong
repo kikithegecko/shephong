@@ -1,0 +1,20 @@
+((
+  (
+    (($ ^) ~)
+    (($ _) reverse)
+  @)
+  (~)
+  ((~) $ =))
+reverse :)
+
+
+( { hello world }
+	(
+		"world"
+		(('h 'e 'l'l 'o '  "GoodBye" _) reverse)
+	@)
+`)
+
+( { System.exit(0) }
+	(#0 "exit" "java.lang.System" #\)
+`)

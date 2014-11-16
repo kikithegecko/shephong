@@ -1,0 +1,54 @@
+{ --------------------------------------------- }
+{ -- THIS IS THE SHEPHONG STANDARD LIBRARY ---- }
+{ --------------------------------------------- }
+{ -- DO _NOT_ CHANGE ANYTHING IN HERE UNLESS -- }
+{ -- YOU ARE REALLY KNOWING WHAT YOU DO ------- }
+{ --------------------------------------------- }
+
+
+{ PART 1: ARITHMETIC }
+
+(($ #+) + :)	{ add }
+(($ #-) - :)	{ subtract }
+(($ #*) * :)	{ multiply }
+(($ #/) / :)	{ divide }
+(($ #%) % :)	{ modulo }
+
+{ PART 2: LOGIC }
+
+(($ #&) & :)	{ and }
+(($ #|) | :)	{ or }
+(($ #!) ! :)	{ not }
+(($ #=) = :)	{ equal }
+(($ #<) < :)	{ less than }
+(($ #>) > :)	{ greater than }
+
+{ PART 3: LISTS }
+
+(($ #^) ^ :)	{ head }
+(($ #_) _ :)	{ tail }
+(($ #@) @ :)	{ append }
+(($ #?) ? :)	{ isList }
+
+{ PART 4: NUMBERS }
+
+( ($ #10 #*)        0 :)
+((($ #10 #*) #1 #+) 1 :)
+((($ #10 #*) #2 #+) 2 :)
+((($ #10 #*) #3 #+) 3 :)
+((($ #10 #*) #4 #+) 4 :)
+((($ #10 #*) #5 #+) 5 :)
+((($ #10 #*) #6 #+) 6 :)
+((($ #10 #*) #7 #+) 7 :)
+((($ #10 #*) #8 #+) 8 :)
+((($ #10 #*) #9 #+) 9 :)
+
+{ PART 5: MAGIC }
+
+(($ #\) \ :)	{ reflection api }
+
+{ PART 6: CHARACTER <=> NUMBER CONVERSION }
+
+(($ #c) c2n :)
+(($ #n) n2c :)
+

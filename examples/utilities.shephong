@@ -1,0 +1,51 @@
+{ small collection of helpful shephong utility functions }
+
+
+{ REVERSE: reverses a list }
+
+((
+  (
+    (($ ^) ~)
+    (($ _) reverse)
+  @)
+  (~)
+  ((~) $ =))
+reverse :)
+
+
+{ LESS OR EQUAL / GREATER OR EQUAL: simple, but they look nice }
+
+((($ <) ($ =) |) <= :)
+((($ >) ($ =) |) >= :)
+
+
+{ FILTER: called with a list and an call, and only returns those     }
+{   elements from the list that the call returns true on             }
+{   example:                                                         }
+{     (((2 $ %) 1 =) odd? :)                                         }
+{     (((5 4 3 2 1 ~) odd? filter) `)                                }
+{  => (5 3 1 ~)                                                      }
+
+((
+  ((($2 _) $1 filter)
+   ((~)
+    (($2 ^) ~)
+    (($2 ^) $1))
+  @)
+  (~)
+  ((~) $2 =))
+filter :)
+
+
+{ SEQUENCE: returns a list with ascending numbers /from/ to /to/     }
+{   example:                                                         }
+{     ((17 7 sequence) `)                                            }
+{  => (17 16 15 14 13 12 11 10 9 8 7 ~)                              }
+
+(((~)
+ (($2 ~)
+  ((1 $2 -) $1 sequence)
+ @)
+($1 $2 >=))
+sequence :)
+

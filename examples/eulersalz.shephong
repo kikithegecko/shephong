@@ -1,0 +1,44 @@
+{ Add all the natural numbers below one thousand that are multiples of 3 or 5. }
+
+{ filter: }
+((
+  ((($2 _) $1 filter)
+   ((~)
+    (($2 ^) ~)
+    (($2 ^) $1))
+  @)
+  (~)
+  ((~) $2 =))
+filter :)
+
+{ example for calling filter: }
+(((2 $ %) 1 =) odd? :)
+(((5 4 3 2 1 ~) odd? filter) `)
+
+((($ <) ($ =) |) <= :)
+((($ >) ($ =) |) >= :)
+
+(((~)
+ (($2 ($1 1 +) seq)
+  ($1 ~)
+ @)
+($2 $1 <=))
+seq :)
+
+(((~)
+ (($2 ~)
+  ((1 $2 -) $1 seq)
+ @)
+($1 $2 >=))
+seq :)
+
+((42 23 seq) `)
+
+((((5 $ %) 0 =)
+  ((3 $ %) 0 =) |)
+euler? :)
+
+{((((19 1 seq) euler? filter) +) `)}
+
+((0 $ ($ euler?)) feuler :)
+(((feuler (999 1 seq)) +) `)

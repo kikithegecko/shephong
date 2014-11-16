@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <requires>
+      <import plugin="org.eclipse.ui" version="3.6.1"/>
+   </requires>
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            name="Shephong Editor"
+            extensions="shephong"
+            contributorClass="de.luh.psue.eclipse.editor.DefaultEditorContributor"
+            class="de.luh.psue.cklab.shephong.lexical.ShephongEditor"
+            id="de.luh.psue.cklab.shephong.editor">
+      </editor>
+            <!--icon="icons/grammar.png"-->
+   </extension>
+   
+	<extension point="de.luh.psue.language">
+		<language extension="shephong" id="de.luh.psue.cklab.shephong" name="Shephong Language">
+			<compiler class="de.luh.psue.cklab.shephong.ShephongCompiler"/>
+			<library class="de.luh.psue.meta.MetaCompiler" name="de.luh.psue">
+        		<forbidden pattern="*"/>
+        		<forbidden pattern="**/internal/**"/>
+        	</library>
+        	<library class="de.luh.psue.cklab.shephong.ShephongCompiler" name="de.luh.psue.cklab.shephong">
+        		<forbidden pattern="*"/>
+        		<forbidden pattern="**/internal/**"/>
+        	</library>
+		</language>
+	</extension>
+
+</plugin>

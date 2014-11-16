@@ -1,0 +1,57 @@
+{ Add all the natural numbers below one thousand that are multiples of 3 or 5. }
+
+(
+	(
+		0
+		(
+			((1 $ +) sum) 
+			$ 
+		+)
+
+	(100 $ <)
+	)
+sum :)
+
+((1 sum) `)
+
+{ filter: }
+((
+  ((($2 _) $1 filter)
+   ((~)
+    (($2 ^) ~)
+    (($2 ^) $1))
+  @)
+  (~)
+  ((~) $2 =))
+filter :)
+
+((
+	(~)
+	(
+		((1 $ +) genlist)
+		($ ~)
+	@)
+	(20 $ <)
+	)
+genlist :)
+
+(((3 $ %) 0 =) multof3? :)
+(((5 $ %) 0 =) multof5? :)
+
+((1 genlist) `)
+(((1 genlist) multof5? filter) `)
+(((1 genlist) multof3? filter) `)
+
+(
+	(
+		(((1 genlist) multof5? filter) multof3? filter)
+	+)
+realeuler :)
+
+(realeuler `)
+
+{
+{ example for calling filter: }
+(((2 $ %) 1 =) odd? :)
+(((5 4 3 2 1 ~) odd? filter) `)
+}
